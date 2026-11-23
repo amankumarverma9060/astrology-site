@@ -1,0 +1,1384 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: #090515;
+  color: #f8f2ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.astro-site {
+  overflow: hidden;
+  background: #090515;
+}
+
+/* HEADER */
+
+.astro-header {
+  height: 82px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13, 8, 29, .95);
+  border-bottom: 1px solid #ffffff18;
+  position: relative;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #c6a0f4;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #e2bd81;
+  background: linear-gradient(145deg, #452568, #17102b);
+  box-shadow: 0 0 22px #a36ce633;
+}
+
+.brand h1 {
+  font-size: 16px;
+}
+
+.brand p {
+  color: #d9b47d;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 28px;
+  color: #c7bdd6;
+  font-size: 13px;
+}
+
+.desktop-nav a:hover {
+  color: #e4bd83;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-btn {
+  border: 1px solid #9b75bd;
+  border-radius: 30px;
+  background: transparent;
+  color: #e7c68e;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+}
+
+.mobile-menu {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+}
+
+/* HERO */
+
+.cosmic-hero {
+  min-height: 650px;
+  padding: 80px 8% 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 76% 45%, #54227788, transparent 42%),
+    radial-gradient(ellipse at 15% 90%, #28164f, transparent 48%),
+    linear-gradient(115deg, #0b0618, #160c2c, #0b0719);
+}
+
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .55;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+    radial-gradient(2px 2px at 30% 70%, #d9b9ff, transparent),
+    radial-gradient(1px 1px at 60% 18%, #fff, transparent),
+    radial-gradient(2px 2px at 85% 25%, #fff, transparent),
+    radial-gradient(1px 1px at 75% 80%, #e5c8ff, transparent);
+  background-size: 270px 220px;
+  animation: starsMove 35s linear infinite;
+}
+
+@keyframes starsMove {
+  to {
+    background-position: 270px 220px;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 570px;
+}
+
+.eyebrow {
+  color: #dfbd8b;
+  font-size: 11px;
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.hero-content h2 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(38px, 4.5vw, 66px);
+  line-height: 1.22;
+  color: #fff8ff;
+}
+
+.hero-content h2>span:not(.hindi-title) {
+  display: block;
+  color: #c38be8;
+  font-size: .83em;
+}
+
+.hindi-title {
+  display: block;
+  color: #e4bd83;
+  font-size: .75em;
+  margin-top: 10px;
+}
+
+.hero-description {
+  color: #bdb0ce;
+  line-height: 1.9;
+  font-size: 15px;
+  max-width: 450px;
+  margin-top: 24px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-height: 48px;
+  padding: 0 23px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.primary-btn {
+  background: linear-gradient(110deg, #d8b477, #a87ad1);
+  color: #1b102a;
+  font-weight: 700;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px #c49be955;
+}
+
+.secondary-btn {
+  border: 1px solid #8f70a8;
+  color: #e8d7f8;
+}
+
+.secondary-btn:hover {
+  background: #ffffff12;
+  border-color: #e5bd83;
+}
+
+.hero-note {
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #9485aa;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ZODIAC WHEEL */
+
+.hero-art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.wheel-area {
+  width: min(440px, 90%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.wheel-glow {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: #8d4acb;
+  filter: blur(90px);
+  opacity: .25;
+}
+
+.wheel-orbit {
+  position: absolute;
+  border: 1px solid #d3b4ef77;
+  border-radius: 50%;
+}
+
+.orbit-one {
+  width: 98%;
+  height: 98%;
+  border-style: dashed;
+  animation: rotateWheel 100s linear infinite;
+}
+
+.orbit-two {
+  width: 88%;
+  height: 88%;
+  border-color: #d9b47d88;
+}
+
+.zodiac-wheel {
+  width: 78%;
+  height: 78%;
+  border: 2px solid #d9b47d;
+  border-radius: 50%;
+  padding: 13px;
+  box-shadow: 0 0 25px #b98bea44,
+    inset 0 0 25px #b98bea22;
+  position: relative;
+  animation: rotateWheel 100s linear infinite;
+}
+
+.wheel-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #c5a0de;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg,
+      transparent 0deg 29.5deg,
+      #b89acb88 30deg 30.5deg);
+}
+
+.wheel-inner::before {
+  content: "";
+  position: absolute;
+  inset: 20%;
+  border: 1px solid #d6b5e7;
+  border-radius: 50%;
+}
+
+.wheel-inner::after {
+  content: "";
+  position: absolute;
+  inset: 34%;
+  border: 1px solid #cba9e6;
+  border-radius: 50%;
+}
+
+.wheel-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e5c18b;
+  z-index: 3;
+  gap: 5px;
+}
+
+.wheel-center span {
+  font-family: Georgia, serif;
+  font-size: 22px;
+}
+
+.wheel-symbol {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) rotate(var(--angle));
+  pointer-events: none;
+}
+
+.wheel-symbol span {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(-1 * var(--angle)));
+  color: #f1d9ff;
+  font-family: Georgia, serif;
+  font-size: clamp(18px, 2.2vw, 27px);
+}
+
+@keyframes rotateWheel {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.wheel-star {
+  position: absolute;
+  color: #f2d5a1;
+  font-size: 22px;
+}
+
+.star-a {
+  top: 8%;
+  right: 15%;
+}
+
+.star-b {
+  bottom: 18%;
+  left: 4%;
+}
+
+.star-c {
+  top: 22%;
+  left: 8%;
+}
+
+.art-caption {
+  color: #c4a6dc;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-top: 25px;
+}
+
+/* RASHI SECTION */
+
+.rashi-section,
+.services-section {
+  padding: 100px 8%;
+  background: #0c0718;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-label {
+  color: #d9b47d;
+  letter-spacing: 4px;
+  font-size: 10px;
+}
+
+.section-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 400;
+  margin-top: 17px;
+}
+
+.section-heading h2 span {
+  color: #c18ce4;
+}
+
+.section-heading p {
+  color: #a99bb9;
+  font-size: 14px;
+  margin-top: 13px;
+}
+
+.rashi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.rashi-card {
+  min-height: 170px;
+  border: 1px solid #b38bce33;
+  background: linear-gradient(145deg, #21152f, #110c20);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+}
+
+.rashi-card:hover {
+  transform: translateY(-7px);
+  border-color: #d9b47d;
+  box-shadow: 0 10px 30px #a36ce622;
+}
+
+.rashi-symbol {
+  color: #e5bd82;
+  font-size: 39px;
+  font-family: Georgia, serif;
+}
+
+.rashi-card h3 {
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.rashi-card p {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #9c8cac;
+}
+
+/* SERVICES */
+
+.services-section {
+  background: linear-gradient(180deg, #0c0718, #140b25);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.service-card {
+  padding: 35px 28px;
+  min-height: 220px;
+  border: 1px solid #b38bce33;
+  background: linear-gradient(145deg, #241732, #120c20);
+  border-radius: 10px;
+  transition: .3s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #d9b47d;
+}
+
+.service-card>svg {
+  color: #e2bd82;
+  width: 31px;
+  height: 31px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.service-card p {
+  color: #a99bb9;
+  line-height: 1.7;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.service-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #e5c08b;
+  font-size: 12px;
+  margin-top: 22px;
+}
+
+/* FOOTER */
+
+.astro-footer {
+  text-align: center;
+  padding: 55px 20px 30px;
+  background: #090512;
+  border-top: 1px solid #b38bce33;
+}
+
+.footer-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #e2bd82;
+}
+
+.footer-brand h3 {
+  color: white;
+  font-size: 17px;
+}
+
+.footer-brand p {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.astro-footer>p {
+  color: #a99bb9;
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+.footer-line {
+  max-width: 650px;
+  height: 1px;
+  background: #b38bce33;
+  margin: 30px auto;
+}
+
+.astro-footer small {
+  color: #81748f;
+  font-size: 11px;
+}
+
+/* MOBILE */
+
+@media (max-width: 950px) {
+  .desktop-nav {
+    gap: 15px;
+  }
+
+  .astro-header {
+    padding: 0 4%;
+  }
+
+  .cosmic-hero {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .rashi-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .astro-header {
+    height: 72px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .brand h1 {
+    font-size: 14px;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cosmic-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 75px 22px 85px;
+    gap: 35px;
+  }
+
+  .hero-content {
+    margin: auto;
+  }
+
+  .eyebrow,
+  .hero-note {
+    justify-content: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .wheel-area {
+    width: min(340px, 85vw);
+  }
+
+  .rashi-section,
+  .services-section {
+    padding: 75px 20px;
+  }
+
+  .rashi-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .rashi-card {
+    min-height: 140px;
+  }
+
+  .rashi-symbol {
+    font-size: 32px;
+  }
+
+  .rashi-card h3 {
+    font-size: 14px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .rashi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.astro-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.astro-logo-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #c6a45c;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d9b66e;
+  position: relative;
+  background: linear-gradient(145deg, #251347, #100a20);
+}
+
+.astro-logo-icon span {
+  position: absolute;
+  font-size: 12px;
+  color: #fff0bd;
+}
+
+.astro-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.astro-logo-text strong {
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.astro-logo-text small {
+  color: #d9b66e;
+  font-size: 11px;
+}
+
+/* kundali pages */
+
+/* KUNDLI PAGE */
+
+.kundli-page {
+  min-height: 100vh;
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #10091f, #17113a, #101b3b);
+  color: #fff;
+}
+
+.kundli-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.kundli-heading svg {
+  color: #d9b66e;
+}
+
+.kundli-heading h1 {
+  font-size: 42px;
+  margin: 12px 0;
+  background: linear-gradient(90deg, #fff, #c7a0ff, #e5c477);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.kundli-heading p {
+  color: #c5bdd9;
+}
+
+.kundli-form {
+  max-width: 550px;
+  margin: auto;
+  padding: 35px;
+  border: 1px solid rgba(218, 185, 115, 0.35);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.kundli-form h2 {
+  color: #e5c477;
+  margin-bottom: 25px;
+}
+
+.kundli-form label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e4d8f8;
+  margin: 18px 0 8px;
+  font-size: 14px;
+}
+
+.kundli-form input,
+.kundli-form select {
+  width: 100%;
+  padding: 13px;
+  border-radius: 9px;
+  border: 1px solid rgba(218, 185, 115, 0.3);
+  background: #17132d;
+  color: white;
+  outline: none;
+}
+
+.kundli-form input:focus,
+.kundli-form select:focus {
+  border-color: #d9b66e;
+}
+
+.kundli-form button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 15px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #c49b52, #efd18b);
+  color: #21152f;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.kundli-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(217, 182, 110, 0.2);
+}
+
+@media (max-width: 600px) {
+  .kundli-form {
+    padding: 22px;
+  }
+
+  .kundli-heading h1 {
+    font-size: 32px;
+  }
+}
+
+/* Kundli Result */
+
+
+/* KUNDLI RESULT PAGE */
+
+.kundli-form>p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #eee4ff;
+  font-size: 15px;
+  padding: 12px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(218, 185, 115, 0.15);
+  border-radius: 9px;
+  overflow-wrap: anywhere;
+}
+
+.kundli-form>p svg {
+  flex-shrink: 0;
+  color: #d9b66e;
+}
+
+.kundli-form .primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #c49b52, #efd18b);
+  color: #21152f;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+
+/* North Indian Diamond Kundli */
+.north-chart-wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 25px auto;
+  padding: 8px;
+  background: #f8edcf;
+  border: 4px solid #c99a25;
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+.north-diamond-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff8e9;
+}
+
+@media (max-width: 600px) {
+  .north-chart-wrapper {
+    padding: 4px;
+    margin: 18px auto;
+  }
+}
+
+
+/* Premium Planetary Positions Table */
+.planet-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #c99a25;
+  border-radius: 12px;
+  background: #fff8e9;
+}
+
+.planet-table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  color: #791414;
+}
+
+.planet-table th {
+  background: #3b245e;
+  color: #f4d58a;
+  padding: 15px 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.planet-table td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #ead9b5;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.planet-table tbody tr:nth-child(even) {
+  background: #f8edcf;
+}
+
+.planet-table tbody tr:hover {
+  background: #f1dfb5;
+}
+
+.planet-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* Premium Vimshottari Dasha Design */
+
+.dasha-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.dasha-card {
+  background: linear-gradient(145deg, #211638, #39235b);
+  border: 1px solid #c99a25;
+  border-radius: 14px;
+  padding: 20px;
+  color: #fff8e9;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+.dasha-card h4 {
+  color: #f4d58a;
+  font-size: 19px;
+  margin-bottom: 14px;
+}
+
+.dasha-card h5 {
+  color: #e6bd62;
+  font-size: 15px;
+  margin: 18px 0 10px;
+  border-bottom: 1px solid #a77d32;
+  padding-bottom: 8px;
+}
+
+.dasha-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #fff0d2;
+  margin: 5px 0;
+}
+
+@media (max-width: 650px) {
+  .dasha-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Premium 12 Houses Design */
+
+.house-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 25px 0;
+}
+
+.house-card {
+  background: linear-gradient(145deg, #211638, #39235b);
+  border: 1px solid #c99a25;
+  border-radius: 14px;
+  padding: 18px;
+  color: #fff8e9;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.house-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 22px rgba(201, 154, 37, 0.2);
+}
+
+.house-card h4 {
+  color: #f4d58a;
+  font-size: 17px;
+  margin-bottom: 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #a77d32;
+}
+
+.house-card p {
+  color: #fff0d2;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 7px 0;
+}
+
+.house-card strong {
+  color: #e6bd62;
+}
+
+@media (max-width: 800px) {
+  .house-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .house-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Kundli PDF Print Layout */
+
+@media print {
+  body {
+    background: white !important;
+    color: #222 !important;
+  }
+
+  .kundli-page {
+    background: white !important;
+    color: #222 !important;
+    padding: 10px !important;
+  }
+
+  .kundli-heading,
+  .kundli-form,
+  .dasha-card,
+  .house-card {
+    background: white !important;
+    color: #222 !important;
+    box-shadow: none !important;
+  }
+
+  .kundli-heading h1,
+  .kundli-form h2,
+  .kundli-form h3,
+  .house-card h4,
+  .dasha-card h4 {
+    color: #791414 !important;
+  }
+
+  .dasha-card p,
+  .house-card p {
+    color: #222 !important;
+  }
+
+  .primary-btn {
+    display: none !important;
+  }
+
+  .north-chart-wrapper {
+    break-inside: avoid;
+  }
+
+  .house-card,
+  .dasha-card {
+    break-inside: avoid;
+  }
+
+  .planet-table-wrapper {
+    overflow: visible !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+}
+
+
+/* Kundli Overview Dashboard */
+
+.kundli-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.overview-card {
+  background: linear-gradient(145deg, #211638, #39235b);
+  border: 1px solid #c99a25;
+  border-radius: 15px;
+  padding: 22px 15px;
+  text-align: center;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-4px);
+}
+
+.overview-card span {
+  font-size: 30px;
+}
+
+.overview-card h4 {
+  color: #f4d58a;
+  font-size: 15px;
+  margin: 12px 0;
+}
+
+.overview-card h3 {
+  color: #ffffff;
+  font-size: 19px;
+  margin: 8px 0;
+}
+
+.overview-card p {
+  color: #e6bd62;
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+@media (max-width: 650px) {
+  .kundli-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .overview-card {
+    background: white !important;
+    border: 1px solid #c99a25;
+    box-shadow: none;
+  }
+
+  .overview-card h3,
+  .overview-card h4,
+  .overview-card p {
+    color: #791414 !important;
+  }
+}
+
+/* Kundli Matching Verdict Design */
+.match-verdict {
+  width: 100%;
+  margin: 20px 0 25px;
+  padding: 25px;
+  background: linear-gradient(135deg, #211735, #302044);
+  border: 1px solid #d9b66e;
+  border-left: 5px solid #d9b66e;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.match-verdict h3 {
+  color: #f4c978;
+  font-size: 20px;
+  margin: 0 0 15px;
+}
+
+.match-verdict h2 {
+  color: #ffffff;
+  font-size: 38px;
+  margin: 10px 0;
+  font-weight: 800;
+}
+
+.match-verdict>p {
+  display: inline-block;
+  color: #211735;
+  background: #e7c477;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  margin: 5px 0 20px;
+}
+
+.verdict-status {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(217, 182, 110, 0.35);
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.verdict-status strong {
+  color: #f4c978;
+  font-size: 15px;
+}
+
+.verdict-status p {
+  color: #ffffff;
+  line-height: 1.7;
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .match-verdict {
+    padding: 18px;
+  }
+
+  .match-verdict h2 {
+    font-size: 32px;
+  }
+}
+
+/* Manglik Dosha Information Card */
+.dosha-info {
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #201832, #292044);
+  border: 1px solid rgba(217, 182, 110, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dosha-info p {
+  color: #eeeeF5;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9px;
+  overflow-wrap: anywhere;
+}
+
+.dosha-info strong {
+  color: #f4c978;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .dosha-info {
+    padding: 14px;
+  }
+
+  .dosha-info p {
+    font-size: 13px;
+    padding: 9px;
+  }
+}
+
+
+.dosha-heading {
+  color: #f4d58a;
+  background: linear-gradient(135deg, #211638, #39235b);
+  border: 1px solid #c99a25;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 24px 0 10px;
+  font-size: 17px;
+}
+
+
+/* ===== ASHTAKOOT MATCHING TABLE ===== */
+
+.koota-table-wrapper {
+  width: 100%;
+  margin: 20px 0;
+  overflow-x: auto;
+  border: 1px solid rgba(217, 182, 110, 0.5);
+  border-radius: 16px;
+  background: #211735;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.koota-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  color: #f5f0ff;
+  font-size: 14px;
+}
+
+.koota-table thead {
+  background: linear-gradient(135deg, #39235b, #211638);
+}
+
+.koota-table th {
+  color: #f4d58a;
+  padding: 16px 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 2px solid #c99a45;
+  white-space: nowrap;
+}
+
+.koota-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(217, 182, 110, 0.18);
+  vertical-align: middle;
+}
+
+.koota-table tbody tr {
+  transition: background 0.25s ease;
+}
+
+.koota-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.koota-table tbody tr:hover {
+  background: rgba(217, 182, 110, 0.12);
+}
+
+.koota-table td strong {
+  display: block;
+  color: #f4d58a;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.koota-table td small {
+  display: block;
+  color: #b9adc9;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.koota-table td:last-child {
+  color: #f4d58a;
+  font-weight: 800;
+  white-space: nowrap;
+  font-size: 15px;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+  .koota-table-wrapper {
+    margin: 15px 0;
+    border-radius: 12px;
+  }
+
+  .koota-table {
+    font-size: 12px;
+  }
+
+  .koota-table th,
+  .koota-table td {
+    padding: 12px 10px;
+  }
+
+  .koota-table th {
+    font-size: 12px;
+  }
+
+  .koota-table td strong {
+    font-size: 12px;
+  }
+
+  .koota-table td small {
+    font-size: 10px;
+  }
+}

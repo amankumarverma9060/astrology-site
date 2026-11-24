@@ -1,6 +1,9 @@
+
+import { Routes, Route } from "react-router-dom";
 import KundliMatching from "./pages/KundliMatching";
 import Kundli from "./pages/Kundli";
 import KundliResult from "./pages/KundliResult";
+
 import {
   Sun,
   Moon,
@@ -83,24 +86,19 @@ function AstroLogo() {
   );
 }
 
-function App() {
-  const path = window.location.pathname;
-
-  if (path === "/kundli") return <Kundli />;
-  if (path === "/kundli-result") return <KundliResult />;
-  if (path === "/kundli-matching") return <KundliMatching />;
-
+// HOME PAGE
+function HomePage() {
   return (
     <main className="astro-site">
 
       {/* NAVBAR */}
       <header className="astro-header">
-        <a href="#" className="brand">
+        <a href="/" className="brand">
           <AstroLogo />
         </a>
 
         <nav className="desktop-nav">
-          <a href="#">Home</a>
+          <a href="/">Home</a>
           <a href="#kundli">Free Kundli</a>
           <a href="#rashifal">Horoscope</a>
           <a href="#services">Astrology Tools</a>
@@ -229,10 +227,10 @@ function App() {
           <div className="service-card">
             <Heart />
             <h3>Kundli Matching</h3>
+            <p>
+              Check compatibility through traditional Vedic matching.
+            </p>
             <a href="/kundli-matching">
-              Match Kundli <ArrowRight size={15} />
-            </a>
-            <a href="#services">
               Match Kundli <ArrowRight size={15} />
             </a>
           </div>
@@ -261,7 +259,9 @@ function App() {
           </div>
         </div>
 
-        <p>Explore the universe. Discover yourself.</p>
+        <p>Explore the universe. Discover yourself.
+          <br /> developed by Aman Kumar Verma
+        </p>
 
         <div className="footer-line"></div>
 
@@ -271,6 +271,18 @@ function App() {
       </footer>
 
     </main>
+  );
+}
+
+// APP ROUTING
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/kundli" element={<Kundli />} />
+      <Route path="/kundli-result" element={<KundliResult />} />
+      <Route path="/kundli-matching" element={<KundliMatching />} />
+    </Routes>
   );
 }
 
